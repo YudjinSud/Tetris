@@ -14,6 +14,8 @@
 #define matrix std::vector<std::vector<int>>
 #define v2f sf::Vector2f
 
+#define moveStep 40
+
 const float cellSize = 20;
 
 const matrix shapes = {
@@ -37,18 +39,19 @@ public:
 class Figure {
 public:
 
-    Figure(int shape) : shape(shape) {}
-
     void create();
 
     void draw();
 
     void rotate();
 
-    void move(int x, int y);
+    void move(float x, float y);
 
     std::vector<Cell> cells;
 
+    Cell getLowestCell();
+
+    float verticalSpeed = 0.01;
 private:
     int shape;
 };

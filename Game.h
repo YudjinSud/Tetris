@@ -11,9 +11,11 @@
 
 #define width 640
 #define height 480
+#define latency 5
 
 class Game {
 public:
+    void tick();
 
     void update();
 
@@ -23,11 +25,16 @@ public:
 
     void init();
 
+    void addFigure();
+
     sf::RenderWindow window;
 
-    std::vector<Figure> figures;
-
 private:
+    sf::Event events;
+
+    std::vector<Figure*> figures;
+
+    Figure *activeFigure;
 
 };
 
